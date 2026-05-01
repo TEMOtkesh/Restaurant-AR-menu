@@ -3,18 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Instant WebAR Menu</title>
-    <!-- A-Frame and MindAR for Universal Fallback -->
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+    <title>AR Menu</title>
+    <style>
+      body, html { margin: 0; padding: 0; background: #000; height: 100%; overflow: hidden; }
+      #root { height: 100%; }
+    </style>
   </head>
   <body>
     <div id="root">
-      <div style="display: flex; height: 100vh; align-items: center; justify-content: center; background: black; color: white; font-family: sans-serif;">
-        Loading Menu App...
+      <div id="loading-screen" style="display: flex; height: 100vh; align-items: center; justify-content: center; background: #000; color: #fff; font-family: sans-serif; flex-direction: column; text-align: center; padding: 20px; position: fixed; inset: 0; z-index: 9999;">
+        <div style="width: 40px; height: 40px; border: 2px solid #333; border-top-color: #F27D26; border-radius: 50%; animate: spin 1s linear infinite; margin-bottom: 20px;"></div>
+        <div style="font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #F27D26;">Initializing Menu</div>
+        <div id="debug-log" style="font-size: 9px; color: #444; font-family: monospace; margin-top: 10px; max-width: 250px;">Waiting for scripts...</div>
       </div>
+      <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
     </div>
-    <script type="module" src="./src/main.tsx"></script>
+    
+    <!-- Load A-Frame and MindAR late -->
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+
+    <script>
+      window.onerror = function(msg) {
+        document.getElementById('debug-log').innerText = 'CRASH: ' + msg;
+        return false;
+      };
+      console.log("Environment check...");
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
 
