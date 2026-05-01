@@ -7,24 +7,10 @@
     <!-- A-Frame and MindAR for Universal Fallback -->
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
-    <script>
-      // Instant Traffic Cop for QR Scans
-      const urlParams = new URLSearchParams(window.location.search);
-      const itemId = urlParams.get('item');
-      if (itemId) {
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        const isMobile = /android|iphone|ipad|ipod/i.test(userAgent);
-        if (isMobile) {
-          window.location.href = `/ar-premium/${itemId}`;
-        } else {
-          window.location.href = `/ar-universal/${itemId}`;
-        }
-      }
-    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="src/main.tsx"></script>
   </body>
 </html>
 

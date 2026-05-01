@@ -1,20 +1,14 @@
 export const DISHES = [
   {
-    id: 'wagyu-steak',
-    name: 'Wagyu A5 Striploin',
-    price: '$85',
-    modelUrl: './models/steak.glb',
+    id: 'dish-1',
+    name: 'Gourmet Dish 1',
+    price: '$45',
+    modelUrl: 'models/food.glb',
   },
   {
-    id: 'lobster-risotto',
-    name: 'Maine Lobster Risotto',
-    price: '$62',
-    modelUrl: './models/risotto.glb',
-  },
-  {
-    id: 'chocolate-dome',
-    name: 'Grand Cru Dome',
-    price: '$24',
-    modelUrl: './models/dessert.glb',
+    id: 'dish-2',
+    name: 'Signature Feast',
+    price: '$72',
+    modelUrl: 'models/food2.glb',
   }
 ];
