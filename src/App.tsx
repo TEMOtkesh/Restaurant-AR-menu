@@ -9,15 +9,15 @@ import { ARUniversal } from './pages/ARUniversal';
  */
 function EntryPoint() {
   const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
-  const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream;
+  const isMobile = /iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream;
   const isAndroid = /android/i.test(userAgent);
   
-  // We prioritize Premium SLAM if on mobile
-  if (isIOS || isAndroid) {
+  console.log("Device detection:", { isMobile, isAndroid });
+
+  if (isMobile || isAndroid) {
     return <Navigate to="/ar-premium" replace />;
   }
   
-  // Desktop or legacy devices go to Universal
   return <Navigate to="/ar-universal" replace />;
 }
 

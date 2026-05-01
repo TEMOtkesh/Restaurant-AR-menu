@@ -32,7 +32,7 @@ export function ARUniversal() {
     };
   }, []);
 
-  const mindFileUrl = 'targets/menu-marker.mind';
+  const mindFileUrl = './targets/menu-marker.mind';
 
   return (
     <div className="fixed inset-0 bg-[#050505] overflow-hidden select-none">
