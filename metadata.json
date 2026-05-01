@@ -1,0 +1,8 @@
+{
+  "name": "Instant WebAR Restaurant Menu",
+  "description": "A high-fidelity AR dining experience with native SLAM and MindAR Universal fallback.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": []
+}
