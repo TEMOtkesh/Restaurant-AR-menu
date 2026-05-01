@@ -32,7 +32,7 @@ export function ARUniversal() {
     };
   }, []);
 
-  const mindFileUrl = 'https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/examples/image-tracking/assets/card-example/card.mind';
+  const mindFileUrl = './targets/menu-marker.mind';
 
   return (
     <div className="fixed inset-0 bg-[#050505] overflow-hidden select-none">
