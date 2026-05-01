@@ -19,18 +19,22 @@
       <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
     </div>
     
-    <!-- Load A-Frame and MindAR late -->
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/dist/mindar-image-aframe.prod.js"></script>
-
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     <script>
       window.onerror = function(msg) {
-        document.getElementById('debug-log').innerText = 'CRASH: ' + msg;
+        var d = document.getElementById('debug-log');
+        if (d) d.innerText = 'Error: ' + msg.split('\n')[0];
         return false;
       };
-      console.log("Environment check...");
+      console.log = function(m) {
+        var d = document.getElementById('debug-log');
+        if (d && typeof m === 'string') d.innerText = m;
+      };
     </script>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="./src/main.tsx"></script>
+    <!-- A-Frame and MindAR for Universal Fallback -->
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/dist/mindar-image-aframe.prod.js"></script>
   </body>
 </html>
 
